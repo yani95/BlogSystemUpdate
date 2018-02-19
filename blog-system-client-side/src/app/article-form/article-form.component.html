@@ -1,0 +1,54 @@
+<p class="formHead">Article Form</p>
+<mat-card>
+	<form [formGroup]="articleForm" (ngSubmit)="onSubmit(articleForm.value)">
+		<mat-input-container>
+			<label for="">Title</label><input matInput [formControl]="articleForm.controls['title']">
+			<div *ngIf="!articleForm.controls['title'].valid && articleForm.controls['title'].touched">
+				<div *ngIf="articleForm.controls['title'].errors.required" class="danger">
+					<span>Article title is required!</span>
+				</div>
+			</div>
+		</mat-input-container><br>
+		
+		<label for="" class="des">Description</label>
+		<div class="desc">
+			<textarea matInput class="description" cols="5" rows="3" [formControl]="articleForm.controls['description']"></textarea>
+			<div *ngIf="!articleForm.controls['description'].valid && articleForm.controls['description'].touched">
+				<div *ngIf="articleForm.controls['description'].errors.required" class="danger-desc"> 
+				<!--<div *ngIf="articleForm.controls['description'].errors.maxlength" class="danger">-->
+					<!--<span>Description should be less then {{constants.MAX_LENGHT_TEXT}} characters!</span>-->
+					<span>Description is required!</span>
+				</div>
+			</div>
+		</div><br>
+
+		<mat-input-container>
+			<label for="">Image url</label><input matInput [formControl]="articleForm.controls['picture']">
+			<div *ngIf="!articleForm.controls['picture'].valid && articleForm.controls['picture'].touched">
+				<div *ngIf="articleForm.controls['picture'].errors.invalidURL" class="danger">
+					<span>URL is not valid!</span>
+				</div>
+			</div>
+		</mat-input-container><br><br>
+
+		<label class="cat">Category</label>
+		<select class="form-control" [formControl]="articleForm.controls['category']">
+			<option value="0">Music</option>
+			<option value="1">Travel</option>
+			<option value="2">Food</option>
+			<option value="3">Business</option>
+			<option value="4">Technology</option>
+			<option value="5">Design</option>
+			<option value="6">Science</option>
+			<option value="7">Education</option>
+			<option value="8">Photography</option>
+			<option value="9">Other</option>				
+		</select>
+
+		<!--<select id="category" class="form-control" [formControl]="articleForm.controls['category']">
+			<option *ngFor="let c of article.category; let i=index" value="{{c}}" [selected]="IsSelected(c)">{{c.value}}</option>
+		</select>-->
+			
+		<button mat-raised-button class="SubmitBtn" value="{{btnName}}" [class.btn-warning]="btnName=='Edit'" [disabled]="!articleForm.valid"> Submit </button>
+	</form>
+</mat-card>

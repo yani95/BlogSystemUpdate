@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+
+.oneItem {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.oneItem, .disabled:after {
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1670px) {
+  .wrapper{
+    width: 35%;
+  }
+  .oneItem{
+    width: 100%;
+    margin-left:0;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .wrapper{
+    width:50%;
+  }
+}
+
+@media only screen and (max-width: 753px) {
+  .wrapper{
+    width:60%;
+  }
+}

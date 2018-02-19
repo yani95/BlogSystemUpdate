@@ -1,0 +1,19 @@
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" [src]="value.picture" alt="img">
+
+    <div class="card-block">      
+      <h4 class="card-title">{{ value.title }}</h4>     
+      <h4>Author: {{ value.author.firstName }} {{ value.author.lastName }}</h4> 
+      <p class="card-text"> {{ value.dateOfCreation | date }}</p>     
+      <div class="details-link">
+         <a [routerLink]="['/article/',value.id]" routerLinkActive="active" (click)="onArticleDetails()"><span>Full details</span></a>
+      </div>
+    </div>
+
+    <div (click)="onArticleDelete()" class="item itemRemove">
+      <i class="glyphicon glyphicon-remove"></i>
+    </div>
+
+  </div>
+</div>

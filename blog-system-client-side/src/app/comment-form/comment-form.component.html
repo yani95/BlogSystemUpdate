@@ -1,0 +1,18 @@
+<p class="formHead">Comment Form</p>
+<mat-card>
+	<form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm.value)">
+		<div class="description">
+			<textarea matInput class="description" cols="5" rows="4"  [formControl]="commentForm.controls['text']" placeholder="Comment"></textarea>
+			<div *ngIf="!commentForm.controls['text'].valid && commentForm.controls['text'].touched">
+				<div *ngIf="commentForm.controls['text'].errors.required" class="danger">
+					<span id="comment">Comment is required!</span>
+				</div>
+			</div>			
+		</div>
+	
+		<!--<input type="submit" class="btn btn-success right btnCreate" value="{{btnName}}" [class.btn-warning]="btnName=='Edit'" [disabled]="!commentForm.valid"
+		/>-->
+		<button mat-raised-button class="SubmitBtn btnCreate" value="{{btnName}}" [class.btn-warning]="btnName=='Edit'" [disabled]="!commentForm.valid"> Submit </button>
+		<div class="reset"></div>
+	</form>
+</mat-card>

@@ -1,0 +1,57 @@
+mat-card {
+    margin: 0 auto;
+    min-height: 80px;
+}
+
+h4 {
+    font-weight: 700;
+}
+
+.details-link {
+  margin-bottom: 20px;
+}
+
+.card-movies {
+   font-weight: 700;
+   color: #333;
+}
+
+span {
+    color: #a50200;
+}
+
+.card-img-top {
+   height: 350px;
+   width: 300px;
+   border-top-left-radius: 20px!important;
+   border-top-right-radius: 20px!important;
+   width: 100%;
+
+}
+
+a {
+  text-decoration: none !important;
+  color: red;
+  float: right;
+  cursor: pointer;
+}
+
+.card-text {
+    text-align: left;  
+    color: #9a9393;
+    word-break: break-word;  
+}
+
+.card-date {
+    font-size: 25px;
+    text-align: left;
+    text-indent: 25px;
+}
+
+img {
+    width: 55px;
+    height: 60px;
+    margin-top: -2px;
+    float: left;
+    border-radius: 0;
+}

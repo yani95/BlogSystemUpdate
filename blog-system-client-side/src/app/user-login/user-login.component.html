@@ -1,0 +1,29 @@
+<h1 class="title">
+  {{title}}
+</h1>
+
+<p class="formHead">User Form</p>
+<mat-card>
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+		<mat-input-container>
+			<input matInput [formControl]="loginForm.controls['username']" placeholder="Username">
+			<div *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].touched">
+				<div *ngIf="loginForm.controls['username'].errors.required" class="danger">
+					<span>Username is required!</span>
+				</div>
+			</div>
+		</mat-input-container><br>
+
+		<mat-input-container>
+			<input matInput [formControl]="loginForm.controls['password']" type="password" placeholder="Password">
+			<div *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+				<div *ngIf="loginForm.controls['password'].errors.required" class="danger">
+					<span>Password is required!</span>
+				</div>
+			</div>
+		</mat-input-container><br>
+		
+		<button mat-raised-button class="SubmitBtn" [disabled]="!loginForm.valid"> LOGIN </button>
+		<span class="error">{{errorMsg}}</span>
+	</form>
+</mat-card>
